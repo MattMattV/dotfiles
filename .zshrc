@@ -9,6 +9,8 @@ PATH=$PATH:$HOME/.local/bin
 export GOPATH=$HOME/dev/go
 export GOBIN=$HOME/dev/go/bin
 
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR"'/keeagent.socket'
+
 LANG=fr_FR.UTF-8
 LANGUAGE=fr_FR.UTF-8
 
