@@ -43,7 +43,7 @@ SAVEHIST=10000
 HISTFILE=~/.zsh_history
 
 ZSH_THEME="powerlevel9k/powerlevel9k"
-plugins=(archlinux composer docker ng sudo yarn zsh-autosuggestions zsh-syntax-highlighting zsh-better-npm-completion)
+plugins=(archlinux composer docker ng  pass sudo yarn zsh-autosuggestions zsh-syntax-highlighting zsh-better-npm-completion)
 POWERLEVEL9K_MODE='nerdfont-complete'
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 POWERLEVEL9K_PROMPT_ADD_NEWLINE=true

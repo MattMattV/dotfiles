@@ -16,5 +16,17 @@
         "name": "GitHub",
         "trigger": "gh ",
         "url": "https://github.com/search?utf8=✓&q=%s"
+    },
+    {
+        "iconPath": "/home/matthieu/.config/albert/org.albert.extension.websearch/{33102bc8-24a5-4e10-b3ba-5660e6edcaf0}.",
+        "name": "TSLint",
+        "trigger": "tsl",
+        "url": "https://palantir.github.io/tslint/rules/%s/"
+    },
+    {
+        "iconPath": "/home/matthieu/.config/albert/org.albert.extension.websearch/{ad2c2057-6025-4317-8ee6-2f413a892b50}.",
+        "name": "Docker Hub",
+        "trigger": "dhub",
+        "url": "https://hub.docker.com/search/?q=%s"
     }
 ]
