@@ -16,6 +16,23 @@ LANGUAGE=fr_FR.UTF-8
 
 export EDITOR=nano
 
+# automatically run "pipenv shell" if we enter a pipenv project subdirectory
+# if opening a new terminal, preserve the source directory
+# PROMPT_COMMAND='prompt'
+# precmd() { eval "$PROMPT_COMMAND"; }
+# function prompt()
+# {
+#     if [ ! $PIPENV_ACTIVE ]; then
+#       if [ `pipenv --venv 2>/dev/null` ]; then
+#         export PIPENV_INITPWD="$PWD"
+#         pipenv shell
+#       fi
+#     elif [ "$PIPENV_INITPWD" ] ; then
+#       cd "$PIPENV_INITPWD" || return 1
+#       unset PIPENV_INITPWD
+#     fi
+# }
+
 git_tsi () {
     git config --global user.signingkey 315FA0B33C21C72C
 }
@@ -44,32 +61,49 @@ HIST_STAMPS="dd/mm/yyyy"
 SAVEHIST=10000
 HISTFILE=~/.zsh_history
 
-POWERLEVEL9K_MODE='nerdfont-complete'
-ZSH_THEME="powerlevel9k/powerlevel9k"
+ZSH_THEME="spaceship"
 
-POWERLEVEL9K_VCS_SHORTEN_LENGTH=4
-POWERLEVEL9K_VCS_SHORTEN_MIN_LENGTH=7
-POWERLEVEL9K_VCS_SHORTEN_STRATEGY="truncate_from_right"
-POWERLEVEL9K_VCS_SHORTEN_DELIMITER=".."
+SPACESHIP_CHAR_SYMBOL="\\uf061 "
 
-POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
+SPACESHIP_GIT_SYMBOL="\\uf1d3 \\ue725 "
 
-POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
-POWERLEVEL9K_SHORTEN_STRATEGY=truncate_from_right
-POWERLEVEL9K_SHORTEN_DELIMITER=''
+SPACESHIP_EXIT_CODE_SHOW=true
+SPACESHIP_EXIT_CODE_SYMBOL=""
 
-POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="%F{255}\u256D\u2500%f"
-POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%F{255}\u2570%F{255}\uF460%F{250}\uF460%F{245}\uF460%f "
+SPACESHIP_EXEC_TIME_PREFIX="\\uf64f "
 
-POWERLEVEL9K_COMMAND_EXECUTION_TIME_THRESHOLD=1
+SPACESHIP_PROMPT_ORDER=(
+  time
+  user
+  dir
+  host
+  git
+  package
+  node
+  ruby
+  elixir
+  golang
+  php
+  rust
+  haskell
+  julia
+  docker
+  aws
+  venv
+  conda
+  pyenv
+  dotnet
+  ember
+  kubecontext
+  exec_time
+  line_sep
+  battery
+  vi_mode
+  jobs
+  exit_code
+  char
+)
 
-POWERLEVEL9K_HOST_ICON="\uF109"
-POWERLEVEL9K_SSH_ICON="\uF489"
-POWERLEVEL9K_HOST_TEMPLATE=""
+plugins=(docker ng sudo pass yarn zsh-autosuggestions zsh-syntax-highlighting zsh-better-npm-completion)
 
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(host context dir_writable dir ip virtualenv status command_execution_time)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
-
-plugins=(archlinux composer docker ng  pass sudo yarn zsh-autosuggestions zsh-syntax-highlighting zsh-better-npm-completion)
 source $ZSH/oh-my-zsh.sh
