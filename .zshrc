@@ -5,11 +5,12 @@ PATH=$PATH:$HOME/apps/bin
 PATH=$PATH:$HOME/.config/yarn/global/node_modules/.bin
 PATH=$PATH:$HOME/.config/composer/vendor/bin
 PATH=$PATH:$HOME/.local/bin
+PATH=$PATH:$HOME/.gem/ruby/2.5.0/bin
 
 export GOPATH=$HOME/dev/go
 export GOBIN=$HOME/dev/go/bin
 
-export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR"'/keeagent.socket'
+export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
 
 LANG=fr_FR.UTF-8
 LANGUAGE=fr_FR.UTF-8
@@ -61,6 +62,6 @@ SPACESHIP_EXIT_CODE_SYMBOL=""
 
 SPACESHIP_EXEC_TIME_PREFIX="\\uf64f "
 
-plugins=(docker ng sudo pass yarn zsh-autosuggestions zsh-syntax-highlighting zsh-better-npm-completion)
+plugins=(docker ng sudo pass yarn zsh-autosuggestions zsh-better-npm-completion zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
