@@ -6,6 +6,8 @@ PATH=$PATH:$HOME/.config/yarn/global/node_modules/.bin
 PATH=$PATH:$HOME/.config/composer/vendor/bin
 PATH=$PATH:$HOME/.local/bin
 PATH=$PATH:$HOME/.gem/ruby/2.5.0/bin
+PATH=$PATH:$HOME/.mix/escripts
+
 
 export GOPATH=$HOME/dev/go
 export GOBIN=$HOME/dev/go/bin
