@@ -1,3 +1,5 @@
+#!/bin/zsh
+
 export ZSH=~/.oh-my-zsh
 
 PATH=$PATH:$HOME/scripts
@@ -7,6 +9,7 @@ PATH=$PATH:$HOME/.config/composer/vendor/bin
 PATH=$PATH:$HOME/.local/bin
 PATH=$PATH:$HOME/.gem/ruby/2.5.0/bin
 PATH=$PATH:$HOME/.mix/escripts
+PATH=$PATH:$HOME/dev/go/bin
 
 
 export GOPATH=$HOME/dev/go
@@ -17,7 +20,6 @@ export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
 LANG=fr_FR.UTF-8
 LANGUAGE=fr_FR.UTF-8
 
-export EDITOR=nano
 
 git_tsi () {
     git config --global user.signingkey 315FA0B33C21C72C
