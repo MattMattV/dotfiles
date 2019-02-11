@@ -2,15 +2,20 @@
 
 export ZSH=~/.oh-my-zsh
 
-PATH=$PATH:$HOME/scripts
-PATH=$PATH:$HOME/apps/bin
-PATH=$PATH:$HOME/.config/yarn/global/node_modules/.bin
-PATH=$PATH:$HOME/.config/composer/vendor/bin
-PATH=$PATH:$HOME/.local/bin
-PATH=$PATH:$HOME/.gem/ruby/2.5.0/bin
-PATH=$PATH:$HOME/.mix/escripts
-PATH=$PATH:$HOME/dev/go/bin
+PATH="$PATH:$HOME/scripts"
+PATH="$PATH:$HOME/apps/bin"
+PATH="$PATH:$HOME/.config/yarn/global/node_modules/.bin"
+PATH="$PATH:$HOME/.config/composer/vendor/bin"
+PATH="$PATH:$HOME/.local/bin"
+PATH="$PATH:$HOME/.gem/ruby/2.6.0/bin"
+PATH="$PATH:$HOME/.mix/escripts"
+PATH="$PATH:$HOME/dev/go/bin"
+PATH="$PATH:/home/matthieu/.dotnet/tools"
 
+export DOTNET_ROOT=/opt/dotnet/
+
+
+DOTNET_CLI_TELEMETRY_OPTOUT=1
 
 export GOPATH=$HOME/dev/go
 export GOBIN=$HOME/dev/go/bin
@@ -22,7 +27,7 @@ LANGUAGE=fr_FR.UTF-8
 
 
 git_tsi () {
-    git config --global user.signingkey 315FA0B33C21C72C
+    git config user.signingkey 315FA0B33C21C72C
 }
 
 git_perso () {
@@ -66,6 +71,6 @@ SPACESHIP_EXIT_CODE_SYMBOL=""
 
 SPACESHIP_EXEC_TIME_PREFIX="\\uf64f "
 
-plugins=(docker ng sudo pass yarn zsh-autosuggestions zsh-better-npm-completion zsh-syntax-highlighting)
+plugins=(aws docker ng sudo zsh-autosuggestions zsh-better-npm-completion zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
