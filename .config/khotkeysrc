@@ -75,7 +75,7 @@ SystemGroup=0
 Type=ACTION_DATA_GROUP
 
 [Data_2Conditions]
-Comment=Fenêtre Konqueror
+Comment=Fen\xc3\xaatre Konqueror
 ConditionsCount=1
 
 [Data_2Conditions0]
@@ -97,15 +97,15 @@ Type=SIMPLE
 WindowTypes=1
 
 [Data_2_1]
-Comment=Appuyez, déplacez vers la gauche, relâchez.
+Comment=Appuyez, d\xc3\xa9placez vers la gauche, rel\xc3\xa2chez.
 Enabled=true
-Name=Précédent
+Name=Pr\xc3\xa9c\xc3\xa9dent
 Type=SIMPLE_ACTION_DATA
 
 [Data_2_10]
-Comment=Style Opera : appuyez, déplacez vers le haut, relâchez.\n Remarque : ceci est en conflit avec « Nouvel onglet » et est donc désactivé par défaut.
+Comment=Style Opera\xc2\xa0: appuyez, d\xc3\xa9placez vers le haut, rel\xc3\xa2chez.\n Remarque\xc2\xa0: ceci est en conflit avec \xc2\xab\xc2\xa0Nouvel onglet\xc2\xa0\xc2\xbb et est donc d\xc3\xa9sactiv\xc3\xa9 par d\xc3\xa9faut.
 Enabled=false
-Name=Arrêter le chargement
+Name=Arr\xc3\xaater le chargement
 Type=SIMPLE_ACTION_DATA
 
 [Data_2_10Actions]
@@ -121,7 +121,7 @@ Comment=
 ConditionsCount=0
 
 [Data_2_10Triggers]
-Comment=Déclencheurs de gestes
+Comment=D\xc3\xa9clencheurs de gestes
 TriggersCount=1
 
 [Data_2_10Triggers0]
@@ -129,7 +129,7 @@ GesturePointData=0,0.125,-0.5,0.5,1,0.125,0.125,-0.5,0.5,0.875,0.25,0.125,-0.5,0
 Type=GESTURE
 
 [Data_2_11]
-Comment=Déplacement d'un niveau dans une structure de dossiers / URL.\n Style Mozilla : appuyez, déplacez vers le haut, puis à gauche, puis en haut et relâchez.
+Comment=D\xc3\xa9placement d'un niveau dans une structure de dossiers\xc2\xa0/ URL.\n Style Mozilla\xc2\xa0: appuyez, d\xc3\xa9placez vers le haut, puis \xc3\xa0 gauche, puis en haut et rel\xc3\xa2chez.
 Enabled=true
 Name=Dossier parent
 Type=SIMPLE_ACTION_DATA
@@ -147,7 +147,7 @@ Comment=
 ConditionsCount=0
 
 [Data_2_11Triggers]
-Comment=Déclencheurs de gestes
+Comment=D\xc3\xa9clencheurs de gestes
 TriggersCount=1
 
 [Data_2_11Triggers0]
@@ -155,9 +155,9 @@ GesturePointData=0,0.0625,-0.5,1,1,0.0625,0.0625,-0.5,1,0.875,0.125,0.0625,-0.5,
 Type=GESTURE
 
 [Data_2_12]
-Comment=Déplacement d'un niveau dans une structure de dossiers / URL.\n Style Opera : appuyez, déplacez vers le haut, puis à gauche, puis en haut et relâchez.\n Remarque : ceci est en conflit avec « Activer l'onglet précédent » et est donc désactivé par défaut.
+Comment=D\xc3\xa9placement d'un niveau dans une structure de dossiers\xc2\xa0/ URL.\n Style Opera\xc2\xa0: appuyez, d\xc3\xa9placez vers le haut, puis \xc3\xa0 gauche, puis en haut et rel\xc3\xa2chez.\n Remarque\xc2\xa0: ceci est en conflit avec \xc2\xab\xc2\xa0Activer l'onglet pr\xc3\xa9c\xc3\xa9dent\xc2\xa0\xc2\xbb et est donc d\xc3\xa9sactiv\xc3\xa9 par d\xc3\xa9faut.
 Enabled=false
-Name=Dossier parent n°2
+Name=Dossier parent n\xc2\xb02
 Type=SIMPLE_ACTION_DATA
 
 [Data_2_12Actions]
@@ -173,7 +173,7 @@ Comment=
 ConditionsCount=0
 
 [Data_2_12Triggers]
-Comment=Déclencheurs de gestes
+Comment=D\xc3\xa9clencheurs de gestes
 TriggersCount=1
 
 [Data_2_12Triggers0]
@@ -181,7 +181,7 @@ GesturePointData=0,0.0625,-0.5,1,1,0.0625,0.0625,-0.5,1,0.875,0.125,0.0625,-0.5,
 Type=GESTURE
 
 [Data_2_13]
-Comment=Appuyez, déplacez vers le haut puis vers la droite et relâchez.
+Comment=Appuyez, d\xc3\xa9placez vers le haut puis vers la droite et rel\xc3\xa2chez.
 Enabled=true
 Name=Activer l'onglet suivant
 Type=SIMPLE_ACTION_DATA
@@ -199,7 +199,7 @@ Comment=
 ConditionsCount=0
 
 [Data_2_13Triggers]
-Comment=Déclencheurs de gestes
+Comment=D\xc3\xa9clencheurs de gestes
 TriggersCount=1
 
 [Data_2_13Triggers0]
@@ -207,9 +207,9 @@ GesturePointData=0,0.0625,-0.5,0,1,0.0625,0.0625,-0.5,0,0.875,0.125,0.0625,-0.5,
 Type=GESTURE
 
 [Data_2_14]
-Comment=Appuyez, déplacez vers le haut puis vers la gauche et relâchez.
+Comment=Appuyez, d\xc3\xa9placez vers le haut puis vers la gauche et rel\xc3\xa2chez.
 Enabled=true
-Name=Activer l'onglet précédent
+Name=Activer l'onglet pr\xc3\xa9c\xc3\xa9dent
 Type=SIMPLE_ACTION_DATA
 
 [Data_2_14Actions]
@@ -225,7 +225,7 @@ Comment=
 ConditionsCount=0
 
 [Data_2_14Triggers]
-Comment=Déclencheurs de gestes
+Comment=D\xc3\xa9clencheurs de gestes
 TriggersCount=1
 
 [Data_2_14Triggers0]
@@ -245,7 +245,7 @@ Comment=
 ConditionsCount=0
 
 [Data_2_1Triggers]
-Comment=Déclencheurs de gestes
+Comment=D\xc3\xa9clencheurs de gestes
 TriggersCount=1
 
 [Data_2_1Triggers0]
@@ -253,7 +253,7 @@ GesturePointData=0,0.125,1,1,0.5,0.125,0.125,1,0.875,0.5,0.25,0.125,1,0.75,0.5,0
 Type=GESTURE
 
 [Data_2_2]
-Comment=Appuyez, déplacez vers le bas puis vers le haut, vers le bas et relâchez.
+Comment=Appuyez, d\xc3\xa9placez vers le bas puis vers le haut, vers le bas et rel\xc3\xa2chez.
 Enabled=true
 Name=Dupliquer l'onglet
 Type=SIMPLE_ACTION_DATA
@@ -271,7 +271,7 @@ Comment=
 ConditionsCount=0
 
 [Data_2_2Triggers]
-Comment=Déclencheurs de gestes
+Comment=D\xc3\xa9clencheurs de gestes
 TriggersCount=1
 
 [Data_2_2Triggers0]
@@ -279,9 +279,9 @@ GesturePointData=0,0.0416667,0.5,0.5,0,0.0416667,0.0416667,0.5,0.5,0.125,0.08333
 Type=GESTURE
 
 [Data_2_3]
-Comment=Appuyez, déplacez vers le bas puis vers le haut et relâchez.
+Comment=Appuyez, d\xc3\xa9placez vers le bas puis vers le haut et rel\xc3\xa2chez.
 Enabled=true
-Name=Dupliquer la fenêtre
+Name=Dupliquer la fen\xc3\xaatre
 Type=SIMPLE_ACTION_DATA
 
 [Data_2_3Actions]
@@ -297,7 +297,7 @@ Comment=
 ConditionsCount=0
 
 [Data_2_3Triggers]
-Comment=Déclencheurs de gestes
+Comment=D\xc3\xa9clencheurs de gestes
 TriggersCount=1
 
 [Data_2_3Triggers0]
@@ -305,7 +305,7 @@ GesturePointData=0,0.0625,0.5,0.5,0,0.0625,0.0625,0.5,0.5,0.125,0.125,0.0625,0.5
 Type=GESTURE
 
 [Data_2_4]
-Comment=Appuyez, déplacez vers la droite et relâchez.
+Comment=Appuyez, d\xc3\xa9placez vers la droite et rel\xc3\xa2chez.
 Enabled=true
 Name=Suivant
 Type=SIMPLE_ACTION_DATA
@@ -323,7 +323,7 @@ Comment=
 ConditionsCount=0
 
 [Data_2_4Triggers]
-Comment=Déclencheurs de gestes
+Comment=D\xc3\xa9clencheurs de gestes
 TriggersCount=1
 
 [Data_2_4Triggers0]
@@ -331,7 +331,7 @@ GesturePointData=0,0.125,0,0,0.5,0.125,0.125,0,0.125,0.5,0.25,0.125,0,0.25,0.5,0
 Type=GESTURE
 
 [Data_2_5]
-Comment=Appuyez, déplacez vers le bas puis vers le haut de moitié, vers la droite, vers le bas et relâchez (comme pour dessiner un « h » minuscule).
+Comment=Appuyez, d\xc3\xa9placez vers le bas puis vers le haut de moiti\xc3\xa9, vers la droite, vers le bas et rel\xc3\xa2chez (comme pour dessiner un \xc2\xab\xc2\xa0h\xc2\xa0\xc2\xbb minuscule).
 Enabled=true
 Name=Dossier personnel
 Type=SIMPLE_ACTION_DATA
@@ -349,7 +349,7 @@ Comment=
 ConditionsCount=0
 
 [Data_2_5Triggers]
-Comment=Déclencheurs de gestes
+Comment=D\xc3\xa9clencheurs de gestes
 TriggersCount=2
 
 [Data_2_5Triggers0]
@@ -361,7 +361,7 @@ GesturePointData=0,0.0416667,0.5,0,0,0.0416667,0.0416667,0.5,0,0.125,0.0833333,0
 Type=GESTURE
 
 [Data_2_6]
-Comment=Appuyez, déplacez vers la droite puis vers le bas, vers la droite et relâchez.\n Style Mozilla : appuyez, déplacez vers le bas, puis vers la droite et relâchez.
+Comment=Appuyez, d\xc3\xa9placez vers la droite puis vers le bas, vers la droite et rel\xc3\xa2chez.\n Style Mozilla\xc2\xa0: appuyez, d\xc3\xa9placez vers le bas, puis vers la droite et rel\xc3\xa2chez.
 Enabled=true
 Name=Fermer l'onglet
 Type=SIMPLE_ACTION_DATA
@@ -379,7 +379,7 @@ Comment=
 ConditionsCount=0
 
 [Data_2_6Triggers]
-Comment=Déclencheurs de gestes
+Comment=D\xc3\xa9clencheurs de gestes
 TriggersCount=2
 
 [Data_2_6Triggers0]
@@ -391,7 +391,7 @@ GesturePointData=0,0.0625,0.5,0,0,0.0625,0.0625,0.5,0,0.125,0.125,0.0625,0.5,0,0
 Type=GESTURE
 
 [Data_2_7]
-Comment=Appuyez, déplacez vers le haut et relâchez.\n Ceci est en conflit avec le mouvement de style Opera « Dossier parent n°2 » et est désactivé par défaut.
+Comment=Appuyez, d\xc3\xa9placez vers le haut et rel\xc3\xa2chez.\n Ceci est en conflit avec le mouvement de style Opera \xc2\xab\xc2\xa0Dossier parent n\xc2\xb02\xc2\xa0\xc2\xbb et est d\xc3\xa9sactiv\xc3\xa9 par d\xc3\xa9faut.
 Enabled=true
 Name=Nouvel onglet
 Type=SIMPLE_ACTION_DATA
@@ -409,7 +409,7 @@ Comment=
 ConditionsCount=0
 
 [Data_2_7Triggers]
-Comment=Déclencheurs de gestes
+Comment=D\xc3\xa9clencheurs de gestes
 TriggersCount=1
 
 [Data_2_7Triggers0]
@@ -417,9 +417,9 @@ GesturePointData=0,0.125,-0.5,0.5,1,0.125,0.125,-0.5,0.5,0.875,0.25,0.125,-0.5,0
 Type=GESTURE
 
 [Data_2_8]
-Comment=Appuyez, déplacez vers le bas et relâchez.
+Comment=Appuyez, d\xc3\xa9placez vers le bas et rel\xc3\xa2chez.
 Enabled=true
-Name=Nouvelle fenêtre
+Name=Nouvelle fen\xc3\xaatre
 Type=SIMPLE_ACTION_DATA
 
 [Data_2_8Actions]
@@ -435,7 +435,7 @@ Comment=
 ConditionsCount=0
 
 [Data_2_8Triggers]
-Comment=Déclencheurs de gestes
+Comment=D\xc3\xa9clencheurs de gestes
 TriggersCount=1
 
 [Data_2_8Triggers0]
@@ -443,7 +443,7 @@ GesturePointData=0,0.125,0.5,0.5,0,0.125,0.125,0.5,0.5,0.125,0.25,0.125,0.5,0.5,
 Type=GESTURE
 
 [Data_2_9]
-Comment=Appuyez, déplacez vers le haut, puis vers le bas et relâchez.
+Comment=Appuyez, d\xc3\xa9placez vers le haut, puis vers le bas et rel\xc3\xa2chez.
 Enabled=true
 Name=Recharger
 Type=SIMPLE_ACTION_DATA
@@ -461,7 +461,7 @@ Comment=
 ConditionsCount=0
 
 [Data_2_9Triggers]
-Comment=Déclencheurs de gestes
+Comment=D\xc3\xa9clencheurs de gestes
 TriggersCount=1
 
 [Data_2_9Triggers0]
