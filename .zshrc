@@ -11,6 +11,7 @@ PATH="$PATH:$HOME/.gem/ruby/2.6.0/bin"
 PATH="$PATH:$HOME/.mix/escripts"
 PATH="$PATH:$HOME/dev/go/bin"
 PATH="$PATH:/home/matthieu/.dotnet/tools"
+PATH="$PATH:/opt/dotnet/sdk/2.2.102/Sdks/"
 
 export DOTNET_ROOT=/opt/dotnet/
 
@@ -71,6 +72,9 @@ SPACESHIP_EXIT_CODE_SYMBOL=""
 
 SPACESHIP_EXEC_TIME_PREFIX="\\uf64f "
 
-plugins=(aws docker ng sudo zsh-autosuggestions zsh-better-npm-completion zsh-syntax-highlighting)
+ZSH_AUTOSUGGEST_USE_ASYNC=true
+ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
+
+plugins=(aws docker ng sudo kubectl zsh-autosuggestions zsh-better-npm-completion zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
