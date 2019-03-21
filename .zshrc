@@ -10,8 +10,9 @@ PATH="$PATH:$HOME/.local/bin"
 PATH="$PATH:$HOME/.gem/ruby/2.6.0/bin"
 PATH="$PATH:$HOME/.mix/escripts"
 PATH="$PATH:$HOME/dev/go/bin"
-PATH="$PATH:/home/matthieu/.dotnet/tools"
+PATH="$PATH:$HOME/.dotnet/tools"
 PATH="$PATH:/opt/dotnet/sdk/2.2.102/Sdks/"
+PATH="$PATH:$HOME/.npm-global/bin"
 
 export DOTNET_ROOT=/opt/dotnet/
 
