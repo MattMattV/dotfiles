@@ -15,8 +15,6 @@ PATH="$PATH:/opt/dotnet/sdk/2.2.102/Sdks/"
 PATH="$PATH:$HOME/.npm-global/bin"
 
 export DOTNET_ROOT=/opt/dotnet/
-
-
 DOTNET_CLI_TELEMETRY_OPTOUT=1
 
 export GOPATH=$HOME/dev/go
@@ -48,12 +46,6 @@ cdtemp () {
     cd $(mktemp -d)
 }
 
-load_nvm () {
-    export NVM_DIR="$HOME/.nvm"
-    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-    [ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"
-}
-
 TERM=xterm-256color
 COMPLETION_WAITING_DOTS="true"
 
@@ -76,6 +68,8 @@ SPACESHIP_EXEC_TIME_PREFIX="\\uf64f "
 ZSH_AUTOSUGGEST_USE_ASYNC=true
 ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 
-plugins=(aws docker ng sudo kubectl zsh-autosuggestions zsh-better-npm-completion zsh-syntax-highlighting)
+plugins=(aws docker nvm sudo kubectl zsh-autosuggestions zsh-better-npm-completion zsh-completions zsh-syntax-highlighting)
+
+autoload -U compinit && compinit
 
 source $ZSH/oh-my-zsh.sh

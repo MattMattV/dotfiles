@@ -22,5 +22,11 @@
         "name": "Docker Hub",
         "trigger": "dhub",
         "url": "https://hub.docker.com/search/?q=%s"
+    },
+    {
+        "iconPath": "/home/matthieu/.config/albert/org.albert.extension.websearch/{81a0c20d-d1f2-4083-a63c-5bf1ee955443}.",
+        "name": "NPM",
+        "trigger": "npm",
+        "url": "https://www.npmjs.com/search?q=%s"
     }
 ]
