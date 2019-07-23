@@ -11,7 +11,7 @@ PATH="$PATH:$HOME/.gem/ruby/2.6.0/bin"
 PATH="$PATH:$HOME/.mix/escripts"
 PATH="$PATH:$HOME/dev/go/bin"
 PATH="$PATH:$HOME/.dotnet/tools"
-PATH="$PATH:/opt/dotnet/sdk/2.2.102/Sdks/"
+PATH="$PATH:/opt/dotnet/sdk/2.2.105/Sdks/"
 PATH="$PATH:$HOME/.npm-global/bin"
 
 export DOTNET_ROOT=/opt/dotnet/
@@ -71,5 +71,15 @@ ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 plugins=(aws docker nvm sudo kubectl zsh-autosuggestions zsh-better-npm-completion zsh-completions zsh-syntax-highlighting)
 
 autoload -U compinit && compinit
+
+# zsh parameter completion for the dotnet CLI
+_dotnet_zsh_complete()
+{
+  local completions=("$(dotnet complete "$words")")
+
+  reply=( "${(ps:\n:)completions}" )
+}
+
+compctl -K _dotnet_zsh_complete dotnet
 
 source $ZSH/oh-my-zsh.sh
