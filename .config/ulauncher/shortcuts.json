@@ -1,0 +1,52 @@
+{
+    "2216eedf-cbc7-4ad7-9475-360cc34a046c": {
+        "id": "2216eedf-cbc7-4ad7-9475-360cc34a046c",
+        "name": "Google Search",
+        "keyword": "g",
+        "cmd": "https://google.fr/search?q=%s",
+        "icon": "/usr/share/ulauncher/media/google-search-icon.png",
+        "is_default_search": true,
+        "run_without_argument": false,
+        "added": 1565961872.6884925
+    },
+    "7fd2e353-79a6-4e0b-9ad6-2c8262cb7c1c": {
+        "id": "7fd2e353-79a6-4e0b-9ad6-2c8262cb7c1c",
+        "name": "Wikipedia",
+        "keyword": "wiki",
+        "cmd": "https://en.wikipedia.org/wiki/%s",
+        "icon": "/usr/share/ulauncher/media/wikipedia-icon.png",
+        "is_default_search": true,
+        "run_without_argument": false,
+        "added": 1565961872.688602
+    },
+    "f472f9eb-7896-4ad8-9ed6-c808e0188dfe": {
+        "id": "f472f9eb-7896-4ad8-9ed6-c808e0188dfe",
+        "name": "YouTube",
+        "keyword": "yt",
+        "cmd": "https://www.youtube.com/results?search_query=%s",
+        "icon": null,
+        "is_default_search": false,
+        "run_without_argument": false,
+        "added": 1565962888.8185716
+    },
+    "400c91ff-30e8-49aa-bba6-91ab2265ce30": {
+        "id": "400c91ff-30e8-49aa-bba6-91ab2265ce30",
+        "name": "Docker Hub",
+        "keyword": "dhub",
+        "cmd": "https://hub.docker.com/search/?q=%s",
+        "icon": null,
+        "is_default_search": false,
+        "run_without_argument": false,
+        "added": 1565963022.7496912
+    },
+    "e090b8c9-7297-4b5c-954b-28752ca89de2": {
+        "id": "e090b8c9-7297-4b5c-954b-28752ca89de2",
+        "name": "NPM",
+        "keyword": "npm",
+        "cmd": "https://www.npmjs.com/search?q=%s",
+        "icon": null,
+        "is_default_search": false,
+        "run_without_argument": false,
+        "added": 1566313959.769786
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "com.github.zensoup.ulauncher-unicode": {
+        "id": "com.github.zensoup.ulauncher-unicode",
+        "url": "https://github.com/zensoup/ulauncher-unicode",
+        "updated_at": "2019-08-16T15:36:15.702714",
+        "last_commit": "0ad36c00a888e687b4bfbf76f266f1000040b337",
+        "last_commit_time": "2019-07-11T06:53:31"
+    },
+    "com.github.brpaz.ulauncher-devdocs": {
+        "id": "com.github.brpaz.ulauncher-devdocs",
+        "url": "https://github.com/brpaz/ulauncher-devdocs",
+        "updated_at": "2019-08-16T15:37:44.840098",
+        "last_commit": "e525c76e7c6fd8c9bd6870fec0df1ebbbed09074",
+        "last_commit_time": "2019-07-28T14:29:24"
+    }
+}
