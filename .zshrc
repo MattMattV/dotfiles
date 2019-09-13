@@ -68,7 +68,7 @@ SPACESHIP_EXEC_TIME_PREFIX="\\uf64f "
 ZSH_AUTOSUGGEST_USE_ASYNC=true
 ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 
-plugins=(aws docker nvm sudo kubectl zsh-autosuggestions zsh-better-npm-completion zsh-completions zsh-syntax-highlighting)
+plugins=(aws docker nvm sudo kubectl zsh-autosuggestions zsh-better-npm-completion zsh-completions zsh-syntax-highlighting history-substring-search)
 
 autoload -U compinit && compinit
 
