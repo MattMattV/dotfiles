@@ -48,5 +48,15 @@
         "is_default_search": false,
         "run_without_argument": false,
         "added": 1566313959.769786
+    },
+    "7891ea1b-63ba-4f1b-a6c0-132ea539928a": {
+        "id": "7891ea1b-63ba-4f1b-a6c0-132ea539928a",
+        "name": "Mozilla Developer Network ",
+        "keyword": "mdn",
+        "cmd": "https://developer.mozilla.org/fr/search?q=%s",
+        "icon": null,
+        "is_default_search": false,
+        "run_without_argument": false,
+        "added": 1567159887.9171455
     }
 }
