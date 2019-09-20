@@ -46,6 +46,14 @@ cdtemp () {
     cd $(mktemp -d)
 }
 
+dotnet() {
+    if [[ $@ == "restore" ]]; then
+        command dotnet restore --configfile ~/.config/NuGet/NuGet.Config
+    else
+        command dotnet "$@"
+    fi
+}
+
 TERM=xterm-256color
 COMPLETION_WAITING_DOTS="true"
 
