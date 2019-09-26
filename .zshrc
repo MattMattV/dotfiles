@@ -5,17 +5,17 @@ export ZSH=~/.oh-my-zsh
 PATH="$PATH:$HOME/scripts"
 PATH="$PATH:$HOME/apps/bin"
 PATH="$PATH:$HOME/.config/yarn/global/node_modules/.bin"
-PATH="$PATH:$HOME/.config/composer/vendor/bin"
+PATH="$PATH:$HOME/.composer/vendor/bin"
 PATH="$PATH:$HOME/.local/bin"
 PATH="$PATH:$HOME/.gem/ruby/2.6.0/bin"
 PATH="$PATH:$HOME/.mix/escripts"
 PATH="$PATH:$HOME/dev/go/bin"
 PATH="$PATH:$HOME/.dotnet/tools"
-PATH="$PATH:/opt/dotnet/sdk/2.2.105/Sdks/"
-PATH="$PATH:$HOME/.npm-global/bin"
+PATH="$PATH:/opt/dotnet/sdk/$(dotnet --version)/Sdks/"
+PATH="$PATH:$HOME/.cargo/bin"
 
 export DOTNET_ROOT=/opt/dotnet/
-DOTNET_CLI_TELEMETRY_OPTOUT=1
+export DOTNET_CLI_TELEMETRY_OPTOUT=1
 
 export GOPATH=$HOME/dev/go
 export GOBIN=$HOME/dev/go/bin
