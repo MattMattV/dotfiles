@@ -11,8 +11,11 @@ PATH="$PATH:$HOME/.gem/ruby/2.6.0/bin"
 PATH="$PATH:$HOME/.mix/escripts"
 PATH="$PATH:$HOME/dev/go/bin"
 PATH="$PATH:$HOME/.dotnet/tools"
-PATH="$PATH:/opt/dotnet/sdk/$(dotnet --version)/Sdks/"
 PATH="$PATH:$HOME/.cargo/bin"
+
+if [ -x "$(command -v dotnet)" ]; then
+	PATH="$PATH:/opt/dotnet/sdk/$(dotnet --version)/Sdks/"
+fi
 
 export DOTNET_ROOT=/opt/dotnet/
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
