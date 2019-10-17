@@ -58,5 +58,15 @@
         "is_default_search": false,
         "run_without_argument": false,
         "added": 1567159887.9171455
+    },
+    "a5bada3f-f549-4d44-89fd-55df843db5fb": {
+        "id": "a5bada3f-f549-4d44-89fd-55df843db5fb",
+        "name": "AUR",
+        "keyword": "aur",
+        "cmd": "https://aur.archlinux.org/packages/?O=0&SeB=nd&K=%s&outdated=&SB=n&SO=a&PP=50&do_Search=Go",
+        "icon": null,
+        "is_default_search": false,
+        "run_without_argument": false,
+        "added": 1571127258.9718819
     }
 }
