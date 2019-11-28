@@ -1,6 +1,5 @@
-#!/bin/zsh
-
 export ZSH=~/.oh-my-zsh
+export UPDATE_ZSH_DAYS=2
 
 PATH="$PATH:$HOME/scripts"
 PATH="$PATH:$HOME/apps/bin"
@@ -10,15 +9,15 @@ PATH="$PATH:$HOME/.local/bin"
 PATH="$PATH:$HOME/.gem/ruby/2.6.0/bin"
 PATH="$PATH:$HOME/.mix/escripts"
 PATH="$PATH:$HOME/dev/go/bin"
+PATH="$PATH:$HOME/.dotnet"
 PATH="$PATH:$HOME/.dotnet/tools"
 PATH="$PATH:$HOME/.cargo/bin"
+
+export DOTNET_CLI_TELEMETRY_OPTOUT=1
 
 if [ -x "$(command -v dotnet)" ]; then
 	PATH="$PATH:/opt/dotnet/sdk/$(dotnet --version)/Sdks/"
 fi
-
-export DOTNET_ROOT=/opt/dotnet/
-export DOTNET_CLI_TELEMETRY_OPTOUT=1
 
 export GOPATH=$HOME/dev/go
 export GOBIN=$HOME/dev/go/bin
@@ -27,7 +26,6 @@ export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
 
 LANG=fr_FR.UTF-8
 LANGUAGE=fr_FR.UTF-8
-
 
 git_tsi () {
     git config user.signingkey 315FA0B33C21C72C
@@ -46,11 +44,11 @@ free_ram () {
 }
 
 cdtemp () {
-    cd $(mktemp -d)
+    cd "$(mktemp -d)" || return
 }
 
 dotnet() {
-    if [[ $@ == "restore" ]]; then
+    if [[ $* == "restore" ]]; then
         command dotnet restore --configfile ~/.config/NuGet/NuGet.Config
     else
         command dotnet "$@"
@@ -79,7 +77,7 @@ SPACESHIP_EXEC_TIME_PREFIX="\\uf64f "
 ZSH_AUTOSUGGEST_USE_ASYNC=true
 ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 
-plugins=(aws docker nvm sudo kubectl zsh-autosuggestions zsh-better-npm-completion zsh-completions zsh-syntax-highlighting history-substring-search)
+plugins=(docker nvm sudo zsh-autosuggestions zsh-better-npm-completion zsh-completions zsh-syntax-highlighting history-substring-search autoupdate)
 
 autoload -U compinit && compinit
 
