@@ -63,16 +63,7 @@ HIST_STAMPS="dd/mm/yyyy"
 SAVEHIST=10000
 HISTFILE=~/.zsh_history
 
-ZSH_THEME="spaceship"
-
-SPACESHIP_CHAR_SYMBOL="\\uf061 "
-
-SPACESHIP_GIT_SYMBOL="\\uf1d3 \\ue725 "
-
-SPACESHIP_EXIT_CODE_SHOW=true
-SPACESHIP_EXIT_CODE_SYMBOL=""
-
-SPACESHIP_EXEC_TIME_PREFIX="\\uf64f "
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 ZSH_AUTOSUGGEST_USE_ASYNC=true
 ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
@@ -92,3 +83,6 @@ _dotnet_zsh_complete()
 compctl -K _dotnet_zsh_complete dotnet
 
 source $ZSH/oh-my-zsh.sh
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
