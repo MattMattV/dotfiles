@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block, everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 export ZSH=~/.oh-my-zsh
 export UPDATE_ZSH_DAYS=2
 
@@ -54,6 +61,24 @@ dotnet() {
         command dotnet "$@"
     fi
 }
+
+today_log() {
+	MY_DAY=$(date +%d)
+	MY_MONTH=$(date +%m)
+	MY_YEAR=$(date +%Y)
+
+	LOG_PATH="$MY_YEAR/$MY_MONTH/$MY_DAY.md"
+
+	PREFIX="$HOME/Nextcloud/Notes/Journal/"
+
+	JOURNAL_PATH="$PREFIX$LOG_PATH"
+
+	# Credits to https://stackoverflow.com/a/24666836/5571277
+	mkdir -p "$(dirname "$JOURNAL_PATH")" || return; touch "$JOURNAL_PATH";
+
+	micro "$JOURNAL_PATH"
+}
+
 
 TERM=xterm-256color
 COMPLETION_WAITING_DOTS="true"
