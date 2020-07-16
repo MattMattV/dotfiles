@@ -6,18 +6,11 @@
         "last_commit": "0ad36c00a888e687b4bfbf76f266f1000040b337",
         "last_commit_time": "2019-07-11T06:53:31"
     },
-    "com.github.brpaz.ulauncher-devdocs": {
-        "id": "com.github.brpaz.ulauncher-devdocs",
-        "url": "https://github.com/brpaz/ulauncher-devdocs",
-        "updated_at": "2019-09-23T14:34:29.746759",
-        "last_commit": "e525c76e7c6fd8c9bd6870fec0df1ebbbed09074",
-        "last_commit_time": "2019-07-28T14:29:24"
-    },
-    "com.github.isacikgoz.ukill": {
-        "id": "com.github.isacikgoz.ukill",
-        "url": "https://github.com/isacikgoz/ukill",
-        "updated_at": "2019-11-26T09:45:21.146722",
-        "last_commit": "bc50d9f41d46b6813a5aeebddd15734dcdb9d8db",
-        "last_commit_time": "2019-05-28T18:30:00"
+    "com.github.elken.terminal-runner": {
+        "id": "com.github.elken.terminal-runner",
+        "url": "https://github.com/elken/Terminal-Runner",
+        "updated_at": "2020-02-25T09:23:09.965401",
+        "last_commit": "6807ebe6047462bcce6063c63228eddcb8c6b481",
+        "last_commit_time": "2020-02-22T23:04:04"
     }
 }

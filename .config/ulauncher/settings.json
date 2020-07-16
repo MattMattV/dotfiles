@@ -3,6 +3,7 @@
     "clear-previous-query": true,
     "hotkey-show-app": "<Alt>space",
     "show-indicator-icon": true,
-    "show-recent-apps": false,
+    "show-recent-apps": true,
+    "terminal-command": "tilix -e",
     "theme-name": "adwaita"
 }

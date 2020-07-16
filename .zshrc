@@ -1,12 +1,4 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block, everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 export ZSH=~/.oh-my-zsh
-export UPDATE_ZSH_DAYS=2
 
 PATH="$PATH:$HOME/scripts"
 PATH="$PATH:$HOME/apps/bin"
@@ -34,12 +26,12 @@ export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
 LANG=fr_FR.UTF-8
 LANGUAGE=fr_FR.UTF-8
 
-git_tsi () {
-    git config user.signingkey 315FA0B33C21C72C
-}
-
 git_perso () {
     git config user.signingkey E1B0AC35CD8ACE99
+}
+
+git_gs() {
+    git config user.signingkey 51E8824D10C738C338D662F69080F8DB72F6B8F8
 }
 
 # credits to https://unix.stackexchange.com/a/87909
@@ -62,23 +54,13 @@ dotnet() {
     fi
 }
 
-today_log() {
-	MY_DAY=$(date +%d)
-	MY_MONTH=$(date +%m)
-	MY_YEAR=$(date +%Y)
-
-	LOG_PATH="$MY_YEAR/$MY_MONTH/$MY_DAY.md"
-
-	PREFIX="$HOME/Nextcloud/Notes/Journal/"
-
-	JOURNAL_PATH="$PREFIX$LOG_PATH"
-
-	# Credits to https://stackoverflow.com/a/24666836/5571277
-	mkdir -p "$(dirname "$JOURNAL_PATH")" || return; touch "$JOURNAL_PATH";
-
-	micro "$JOURNAL_PATH"
+ls() {
+    command exa -al --icons "$@"
 }
 
+cat() {
+    command bat "$@"
+}
 
 TERM=xterm-256color
 COMPLETION_WAITING_DOTS="true"
@@ -93,7 +75,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 ZSH_AUTOSUGGEST_USE_ASYNC=true
 ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 
-plugins=(docker nvm sudo zsh-autosuggestions zsh-better-npm-completion zsh-completions zsh-syntax-highlighting history-substring-search autoupdate)
+plugins=(docker nvm sudo zsh-autosuggestions zsh-better-npm-completion zsh-completions zsh-syntax-highlighting history-substring-search autoupdate notify)
 
 autoload -U compinit && compinit
 

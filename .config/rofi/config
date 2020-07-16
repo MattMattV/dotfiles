@@ -25,9 +25,8 @@ rofi.drun-icon-theme:   Papirus-Adapta-Nokto
 rofi.display-drun:      :
 
 rofi.show:              drun
-rofi.modi:              drun
+rofi.modi:              drun,window,ssh
 
 rofi.matching: glob
-rofi.drun-match-fields: name,execrofi.theme: /usr/share/rofi/themes/sidebar.rasi
 
 rofi.window-format: {t}
