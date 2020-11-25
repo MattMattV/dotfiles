@@ -1,13 +1,61 @@
 #!/bin/bash
 
-git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+IFS=""
 
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git  ~/.oh-my-zsh/custom/themes/powerlevel10k
+REQUIRED_BINS=(
+    git
+    curl
+    cargo
+    diff-so-fancy
+)
+
+ERROR=0
+
+for COMMAND in ${REQUIRED_BINS[*]}
+do
+    if ! command -v "$COMMAND" &> /dev/null
+    then
+        ERROR=1
+        echo "$COMMAND is missing"
+    fi
+done
+
+if ((ERROR == 1))
+then
+    exit 1
+fi
+
+# Node Version Manager
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.1/install.sh | bash
+
+# oh-my-zsh stuff
+git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-completions ~/.oh-my-zsh/custom/plugins/zsh-completions
-git clone https://github.com/zsh-users/zsh-history-substring-search ~/.oh-my-zsh/custom/plugins/zsh-history-substring-search
 git clone https://github.com/TamCore/autoupdate-oh-my-zsh-plugins ~/.oh-my-zsh/custom/plugins/autoupdate
 
-git clone https://github.com/lukechilds/zsh-better-npm-completion ~/.oh-my-zsh/custom/plugins/zsh-better-npm-completion
+# vim-plug 
+curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+if command -v nvim &> /dev/null
+then
+    nvim +PlugInstall +qall
+fi
+
+# diff-so-fancy related settings
+git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
+git config --global color.ui true
+
+git config --global color.diff-highlight.oldNormal    "red bold"
+git config --global color.diff-highlight.oldHighlight "red bold 52"
+git config --global color.diff-highlight.newNormal    "green bold"
+git config --global color.diff-highlight.newHighlight "green bold 22"
+
+git config --global color.diff.meta       "11"
+git config --global color.diff.frag       "magenta bold"
+git config --global color.diff.commit     "yellow bold"
+git config --global color.diff.old        "red bold"
+git config --global color.diff.new        "green bold"
+git config --global color.diff.whitespace "red reverse"

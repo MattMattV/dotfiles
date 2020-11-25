@@ -1,95 +1,65 @@
-export ZSH=~/.oh-my-zsh
+##############################
+### Matthieu Vion's .zshrc ###
+##############################
 
-PATH="$PATH:$HOME/scripts"
-PATH="$PATH:$HOME/apps/bin"
-PATH="$PATH:$HOME/.config/yarn/global/node_modules/.bin"
-PATH="$PATH:$HOME/.composer/vendor/bin"
-PATH="$PATH:$HOME/.local/bin"
-PATH="$PATH:$HOME/.gem/ruby/2.6.0/bin"
-PATH="$PATH:$HOME/.mix/escripts"
-PATH="$PATH:$HOME/dev/go/bin"
-PATH="$PATH:$HOME/.dotnet"
-PATH="$PATH:$HOME/.dotnet/tools"
-PATH="$PATH:$HOME/.cargo/bin"
+# Binaries installed with Cargo
+export PATH=$PATH:$HOME/.cargo/bin
 
-export DOTNET_CLI_TELEMETRY_OPTOUT=1
+# Binaries from pip
+export PATH=$PATH:$HOME/.local/bin
 
-if [ -x "$(command -v dotnet)" ]; then
-	PATH="$PATH:/opt/dotnet/sdk/$(dotnet --version)/Sdks/"
-fi
-
-export GOPATH=$HOME/dev/go
-export GOBIN=$HOME/dev/go/bin
-
-export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
-
-LANG=fr_FR.UTF-8
-LANGUAGE=fr_FR.UTF-8
-
-git_perso () {
-    git config user.signingkey E1B0AC35CD8ACE99
-}
-
-git_gs() {
-    git config user.signingkey 51E8824D10C738C338D662F69080F8DB72F6B8F8
-}
-
-# credits to https://unix.stackexchange.com/a/87909
-free_ram () {
-    free -h
-    sync
-    sudo sysctl -w vm.drop_caches=3
-    free -h
-}
-
-cdtemp () {
-    cd "$(mktemp -d)" || return
-}
-
-dotnet() {
-    if [[ $* == "restore" ]]; then
-        command dotnet restore --configfile ~/.config/NuGet/NuGet.Config
-    else
-        command dotnet "$@"
-    fi
-}
-
-ls() {
-    command exa -al --icons "$@"
-}
-
-cat() {
-    command bat "$@"
-}
+# Path to your oh-my-zsh installation.
+export ZSH="$HOME/.oh-my-zsh"
 
 TERM=xterm-256color
+
+# Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
 
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# You can set one of the optional three formats:
+# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# or set a custom format using the strftime function format specifications,
+# see 'man strftime' for details.
 HIST_STAMPS="dd/mm/yyyy"
-# enable history
+
 SAVEHIST=10000
 HISTFILE=~/.zsh_history
+INC_APPEND_HISTORY=true
 
-ZSH_THEME="powerlevel10k/powerlevel10k"
-
+# As of v0.4.0, zsh-suggestions can be fetched asynchronously.
 ZSH_AUTOSUGGEST_USE_ASYNC=true
-ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 
-plugins=(docker nvm sudo zsh-autosuggestions zsh-better-npm-completion zsh-completions zsh-syntax-highlighting history-substring-search autoupdate notify)
+bgnotify_threshold=4
 
-autoload -U compinit && compinit
-
-# zsh parameter completion for the dotnet CLI
-_dotnet_zsh_complete()
-{
-  local completions=("$(dotnet complete "$words")")
-
-  reply=( "${(ps:\n:)completions}" )
+function bgnotify_formatted {
+    ## $1=exit_status, $2=command, $3=elapsed_time
+    notify-send.sh --icon=terminal --app-name='oh my zsh!' --hint=string:sound-name:complete "oh my zsh!" "'$2' ($3s) $3"
+    #bgnotify "'$2' ($3s) $3";
 }
 
-compctl -K _dotnet_zsh_complete dotnet
+# Which plugins would you like to load?
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(
+    bgnotify
+    cargo
+    docker
+    docker-compose
+    dotenv
+    git
+    npm
+    nvm
+    sudo
+    zsh-autosuggestions
+    zsh-completions
+    zsh-syntax-highlighting
+)
+autoload -U compinit && compinit
 
 source $ZSH/oh-my-zsh.sh
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+eval "$(starship init zsh)"
