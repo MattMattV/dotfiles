@@ -21,6 +21,8 @@ export PATH=$PATH:$HOME/.gem/ruby/2.7.0/bin
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
+
+# https://github.com/zyedidia/micro to replace nano
 EDITOR=micro
 
 TERM=xterm-256color
@@ -43,6 +45,12 @@ INC_APPEND_HISTORY=true
 # As of v0.4.0, zsh-suggestions can be fetched asynchronously.
 ZSH_AUTOSUGGEST_USE_ASYNC=true
 
+# zsh-autosuggestions will first try to find a suggestion from the history, but, if it can't find a match, will find a suggestion from the completion engine.
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+
+# disabling zsh-autosuggestions when copy pasting large texts by example
+ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
+
 bgnotify_threshold=4
 
 function bgnotify_formatted() {
@@ -51,23 +59,14 @@ function bgnotify_formatted() {
     #bgnotify "'$2' ($3s) $3";
 }
 
-function otp() {
-    adb shell am start -n com.beemdevelopment.aegis/.ui.MainActivity
-}
-# Which plugins would you like to load?
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
 plugins=(
+    autoupdate
     bgnotify
-    cargo
-	zsh-diff-so-fancy
-    deno
     docker
     docker-compose
     dotenv
     git
+    history-substring-search
     npm
     nvm
     sudo
