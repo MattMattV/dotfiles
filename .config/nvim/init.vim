@@ -28,8 +28,8 @@ Plug 'ryanoasis/vim-devicons'
 let g:NERDTreeGitStatusUseNerdFonts = 1
 autocmd BufEnter * if bufname('#') =~# "^NERD_tree_" && winnr('$') > 1 | b# | endif
 
-" plugin to manage text todo lists
-Plug 'dkarter/bullets.vim'
+" fuzzy-finder for everything !
+Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 
 call plug#end()
 
@@ -49,7 +49,7 @@ set foldmethod=indent
 set foldlevelstart=99
 nnoremap - za
 map _ zM
-map + zR 
+map + zR
 
 " colorscheme
 let g:airline_theme='molokai'

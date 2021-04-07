@@ -1,9 +1,8 @@
 configuration {
 	modi: "window,drun";
-	width: 200;
+	font: "IBM Plex Sans 13";
 /*	lines: 15;*/
 /*	columns: 1;*/
-	font: "IBM Plex Sans 12";
 /*	bw: 1;*/
 /*	location: 0;*/
 /*	padding: 5;*/
@@ -55,7 +54,7 @@ configuration {
 	window-format: "{c}   {t}";
 /*	click-to-exit: true;*/
 /*	show-match: true;*/
-	theme: "slate.rasi";
+	theme: "nord.rasi";
 /*	color-normal: ;*/
 /*	color-urgent: ;*/
 /*	color-active: ;*/

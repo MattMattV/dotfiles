@@ -5,7 +5,6 @@ IFS=""
 REQUIRED_BINS=(
     git
     curl
-    cargo
     diff-so-fancy
 )
 
@@ -25,8 +24,16 @@ then
     exit 1
 fi
 
+get_latest_release() {
+  curl --silent "https://api.github.com/repos/$1/releases/latest" | # Get latest release from GitHub api
+    grep '"tag_name":' |                                            # Get tag line
+    sed -E 's/.*"([^"]+)".*/\1/'                                    # Pluck JSON value
+}
+
+NVM_VERSION=$(get_latest_release "nvm-sh/nvm")
+
 # Node Version Manager
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.1/install.sh | bash
+curl -o- "https://raw.githubusercontent.com/nvm-sh/nvm/$NVM_VERSION/install.sh" | bash
 
 # oh-my-zsh stuff
 git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
@@ -35,8 +42,10 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-completions ~/.oh-my-zsh/custom/plugins/zsh-completions
 git clone https://github.com/TamCore/autoupdate-oh-my-zsh-plugins ~/.oh-my-zsh/custom/plugins/autoupdate
+git clone --recurse-submodules --remote-submodules https://github.com/zdharma/zsh-diff-so-fancy.git ~/.oh-my-zsh/custom/plugins/zsh-diff-so-fancy
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/custom/themes/powerlevel10k
 
-# vim-plug 
+# vim-plug
 curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 if command -v nvim &> /dev/null
@@ -59,3 +68,11 @@ git config --global color.diff.commit     "yellow bold"
 git config --global color.diff.old        "red bold"
 git config --global color.diff.new        "green bold"
 git config --global color.diff.whitespace "red reverse"
+
+# demo completions
+if command -v deno &> /dev/null
+then
+	PLUGIN_FOLDER=~/.oh-my-zsh/custom/plugins/deno
+	mkdir -p "$PLUGIN_FOLDER"
+	deno completions zsh > "$PLUGIN_FOLDER"/_deno
+fi
