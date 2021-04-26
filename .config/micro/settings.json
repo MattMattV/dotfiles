@@ -1,0 +1,11 @@
+{
+    "colorcolumn": 80,
+    "colorscheme": "monokai-dark",
+    "diffgutter": true,
+    "mkparents": true,
+    "mouse": false,
+    "rmtrailingws": true,
+    "saveundo": true,
+    "scrollbar": true,
+    "tabstospace": true
+}
