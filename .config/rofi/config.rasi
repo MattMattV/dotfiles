@@ -1,5 +1,5 @@
 configuration {
-	modi: "window,drun";
+	modi: "window,drun,calc";
 	font: "IBM Plex Sans 13";
 /*	lines: 15;*/
 /*	columns: 1;*/
