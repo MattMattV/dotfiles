@@ -1,85 +1,75 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+autoload -U compinit
+setopt promptsubst
+autoload -U promptinit; promptinit
 
-##############################
-### Matthieu Vion's .zshrc ###
-##############################
-
-# Binaries installed with Cargo
-export PATH=$PATH:$HOME/.cargo/bin
-
-# Binaries from pip
-export PATH=$PATH:$HOME/.local/bin
-
-# Binaries from Ruby package manager, gem
-export PATH=$PATH:$HOME/.gem/ruby/2.7.0/bin
-
-# Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
-
-
-# https://github.com/zyedidia/micro to replace nano
-EDITOR=micro
-
-TERM=xterm-256color
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
-HIST_STAMPS="dd/mm/yyyy"
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 
 SAVEHIST=10000
 HISTFILE=~/.zsh_history
-INC_APPEND_HISTORY=true
+export HIST_STAMPS="mm/dd/yyyy"
+setopt inc_append_history
+setopt share_history
+setopt extended_history
+setopt hist_ignore_space
 
-# As of v0.4.0, zsh-suggestions can be fetched asynchronously.
-ZSH_AUTOSUGGEST_USE_ASYNC=true
-
-# zsh-autosuggestions will first try to find a suggestion from the history, but, if it can't find a match, will find a suggestion from the completion engine.
-ZSH_AUTOSUGGEST_STRATEGY=(history completion)
-
-# disabling zsh-autosuggestions when copy pasting large texts by example
-ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
-
-bgnotify_threshold=4
-
+# bgnotify custom function
 function bgnotify_formatted() {
     ## $1=exit_status, $2=command, $3=elapsed_time
     notify-send.sh --icon=terminal --app-name='oh my zsh!' --hint=string:sound-name:complete "oh my zsh!" "'$2' ($3s) $3"
     #bgnotify "'$2' ($3s) $3";
 }
 
-plugins=(
-    autoupdate
-    bgnotify
-    docker
-    docker-compose
-    dotenv
-    git
-    history-substring-search
-    npm
-    nvm
-    sudo
-    z
-    zsh-autosuggestions
-    zsh-completions
-    zsh-syntax-highlighting
-)
-autoload -U compinit && compinit
+export NVM_LAZY_LOAD=true
 
-ZSH_THEME="powerlevel10k/powerlevel10k"
+source ~/.zinit/bin/zinit.zsh
 
-source $ZSH/oh-my-zsh.sh
+zinit ice wait'!'
+zinit snippet OMZP::nvm
+zinit ice wait'!'
+zinit snippet OMZP::sudo
+zinit ice wait'!'
+zinit snippet OMZP::bgnotify
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+zinit ice compile'(pure|async).zsh' pick'async.zsh' src'pure.zsh'
+zinit light sindresorhus/pure
+
+zinit ice blockf
+zinit light zsh-users/zsh-completions
+
+# sharkdp/bat
+zinit ice as"command" from"gh-r" mv"bat* -> bat" pick"bat/bat"
+zinit light sharkdp/bat
+
+# ogham/exa, replacement for ls
+zinit ice wait"2" lucid from"gh-r" as"program" mv"exa* -> exa" pick"bin/exa"
+zinit light ogham/exa
+
+zinit ice as"completion"
+zinit snippet https://github.com/docker/cli/blob/master/contrib/completion/zsh/_docker
+
+zinit ice as"program" cp"wd.sh -> wd" mv"_wd.sh -> _wd" \
+    atpull'!git reset --hard' pick"wd"
+zinit light mfaerevaag/wd
+
+zinit ice wait"2" lucid as"program" pick"bin/git-dsf"
+zinit load zdharma-continuum/zsh-diff-so-fancy
+
+zinit ice wait"0" lucid
+zinit load lukechilds/zsh-nvm
+
+zinit wait lucid for \
+ atinit"zicompinit; zicdreplay" \
+    zdharma-continuum/fast-syntax-highlighting \
+ blockf \
+    zsh-users/zsh-completions \
+ atload"!_zsh_autosuggest_start" \
+    zsh-users/zsh-autosuggestions
+
+# Automatically refresh completions
+zstyle ':completion:*' rehash true
+# Highlight currently selected tab completion
+zstyle ':completion:*' menu select
+zstyle ':completion:*' completer _complete _expand _ignored _approximate
+zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' '+l:|=* r:|=*'
+# zstyle ':completion:*' group-name '' # group results by category
