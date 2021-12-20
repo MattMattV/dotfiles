@@ -1,75 +1,62 @@
-autoload -U compinit
-setopt promptsubst
-autoload -U promptinit; promptinit
+# Correct spelling for commands
+setopt correct
 
-ZSH_AUTOSUGGEST_STRATEGY=(history completion)
-ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
+# turn off the infernal correctall for filenames
+unsetopt correctall
 
-SAVEHIST=10000
-HISTFILE=~/.zsh_history
-export HIST_STAMPS="mm/dd/yyyy"
-setopt inc_append_history
-setopt share_history
+# history tweaking
+setopt append_history
 setopt extended_history
+setopt hist_expire_dups_first
+setopt hist_ignore_all_dups
+setopt hist_ignore_dups
 setopt hist_ignore_space
+setopt hist_reduce_blanks
+setopt hist_save_no_dups
+setopt hist_verify
+setopt INC_APPEND_HISTORY
+unsetopt HIST_BEEP
+HISTSIZE=100000
+SAVEHIST=100000
+HISTFILE=~/.zsh_history
 
-# bgnotify custom function
-function bgnotify_formatted() {
-    ## $1=exit_status, $2=command, $3=elapsed_time
-    notify-send.sh --icon=terminal --app-name='oh my zsh!' --hint=string:sound-name:complete "oh my zsh!" "'$2' ($3s) $3"
-    #bgnotify "'$2' ($3s) $3";
-}
+# Add some completions settings
+setopt ALWAYS_TO_END     # Move cursor to the end of a completed word.
+setopt AUTO_LIST         # Automatically list choices on ambiguous completion.
+setopt AUTO_MENU         # Show completion menu on a successive tab press.
+setopt AUTO_PARAM_SLASH  # If completed parameter is a directory, add a trailing slash.
+setopt COMPLETE_IN_WORD  # Complete from both ends of a word.
+unsetopt MENU_COMPLETE   # Do not autoselect the first completion entry.
 
-export NVM_LAZY_LOAD=true
+if [ ! -d "${HOME}/.zgenom" ]
+then
+	git clone https://github.com/jandamm/zgenom.git "${HOME}/.zgenom"
+fi
 
-source ~/.zinit/bin/zinit.zsh
+source "${HOME}/.zgenom/zgenom.zsh"
 
-zinit ice wait'!'
-zinit snippet OMZP::nvm
-zinit ice wait'!'
-zinit snippet OMZP::sudo
-zinit ice wait'!'
-zinit snippet OMZP::bgnotify
+zgenom autoupdate 1
 
-zinit ice compile'(pure|async).zsh' pick'async.zsh' src'pure.zsh'
-zinit light sindresorhus/pure
+if ! zgenom saved; then
+    echo "Creating a zgenom save"
 
-zinit ice blockf
-zinit light zsh-users/zsh-completions
+    zgenom ohmyzsh
+    zgenom ohmyzsh plugins/git
+    zgenom ohmyzsh plugins/sudo
+    zgenom oh-my-zsh plugins/colored-man-pages
+    zgenom oh-my-zsh plugins/rsync
 
-# sharkdp/bat
-zinit ice as"command" from"gh-r" mv"bat* -> bat" pick"bat/bat"
-zinit light sharkdp/bat
+    zgenom loadall <<EOPLUGINS
+        zsh-users/zsh-syntax-highlighting
+      	zsh-users/zsh-history-substring-search
+        zsh-users/zsh-completions src
+        zsh-users/zsh-autosuggestions
+        unixorn/warhol.plugin.zsh
+        sindresorhus/pure
+EOPLUGINS
 
-# ogham/exa, replacement for ls
-zinit ice wait"2" lucid from"gh-r" as"program" mv"exa* -> exa" pick"bin/exa"
-zinit light ogham/exa
+    zgenom apply
+fi
 
-zinit ice as"completion"
-zinit snippet https://github.com/docker/cli/blob/master/contrib/completion/zsh/_docker
-
-zinit ice as"program" cp"wd.sh -> wd" mv"_wd.sh -> _wd" \
-    atpull'!git reset --hard' pick"wd"
-zinit light mfaerevaag/wd
-
-zinit ice wait"2" lucid as"program" pick"bin/git-dsf"
-zinit load zdharma-continuum/zsh-diff-so-fancy
-
-zinit ice wait"0" lucid
-zinit load lukechilds/zsh-nvm
-
-zinit wait lucid for \
- atinit"zicompinit; zicdreplay" \
-    zdharma-continuum/fast-syntax-highlighting \
- blockf \
-    zsh-users/zsh-completions \
- atload"!_zsh_autosuggest_start" \
-    zsh-users/zsh-autosuggestions
-
-# Automatically refresh completions
-zstyle ':completion:*' rehash true
-# Highlight currently selected tab completion
-zstyle ':completion:*' menu select
-zstyle ':completion:*' completer _complete _expand _ignored _approximate
-zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' '+l:|=* r:|=*'
-# zstyle ':completion:*' group-name '' # group results by category
+autoload -U promptinit; promptinit
+prompt pure
