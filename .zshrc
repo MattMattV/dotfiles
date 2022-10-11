@@ -20,32 +20,38 @@ HISTSIZE=100000
 SAVEHIST=100000
 HISTFILE=~/.zsh_history
 
-EDITOR=micro
-
-# bun completions
-[ -s "/home/matthieu/.bun/_bun" ] && source "/home/matthieu/.bun/_bun"
+export EDITOR=micro
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
+[ -s "$BUN_INSTALL/_bun" ] && source "$BUN_INSTALL/_bun"
 
+path+=("$HOME/Scripts")
 path+=("$HOME/.local/bin")
+path+=("$HOME/.cargo/bin")
+path+=("$HOME/.config/composer/vendor/bin/")
 path+=("$BUN_INSTALL/bin")
 
 export PATH
 
 # Add some completions settings
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'       # Case insensitive tab completion
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"         # Colored completion (different colors for dirs/files/etc)
+zstyle ':completion:*' menu select
+zstyle ':completion:*' rehash true                              # automatically find new executables in path
+# Speed up completions
+zstyle ':completion:*' accept-exact '*(N)'
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path ~/.zsh/cache
+
 setopt ALWAYS_TO_END     # Move cursor to the end of a completed word.
 setopt AUTO_LIST         # Automatically list choices on ambiguous completion.
 setopt AUTO_MENU         # Show completion menu on a successive tab press.
 setopt AUTO_PARAM_SLASH  # If completed parameter is a directory, add a trailing slash.
 setopt COMPLETE_IN_WORD  # Complete from both ends of a word.
-unsetopt MENU_COMPLETE   # Do not autoselect the first completion entry.
 
 # Invalidate config on .zshrc change
 ZGEN_RESET_ON_CHANGE=(${HOME}/.zshrc)
-
-zstyle ':completion:*' menu select
 
 if [ ! -d "${HOME}/.zgenom" ]
 then
@@ -61,6 +67,7 @@ if ! zgenom saved; then
 
     zgenom oh-my-zsh
     zgenom oh-my-zsh plugins/asdf
+    zgenom oh-my-zsh plugins/bgnotify
     zgenom oh-my-zsh plugins/git
     zgenom oh-my-zsh plugins/sudo
     zgenom oh-my-zsh plugins/colored-man-pages
@@ -73,18 +80,13 @@ if ! zgenom saved; then
         clarketm/zsh-completions
         zsh-users/zsh-autosuggestions
         unixorn/warhol.plugin.zsh
-        CurryEleison/zsh-asdf-prompt
         svenXY/timewarrior
         spwhitt/nix-zsh-completions
         jscutlery/nx-completion
         unixorn/prettyping
         agkozak/zsh-z
         MichaelAquilina/zsh-you-should-use
-        sindresorhus/pure
+        spaceship-prompt/spaceship-prompt spaceship
 EOPLUGINS
-
     zgenom save
 fi
-
-autoload -U promptinit; promptinit
-prompt pure
