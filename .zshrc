@@ -53,6 +53,10 @@ setopt COMPLETE_IN_WORD  # Complete from both ends of a word.
 # Invalidate config on .zshrc change
 ZGEN_RESET_ON_CHANGE=(${HOME}/.zshrc)
 
+# oh-my-zsh/bgnotify options
+bgnotify_threshold=2
+
+
 if [ ! -d "${HOME}/.zgenom" ]
 then
 	git clone https://github.com/jandamm/zgenom.git "${HOME}/.zgenom"
@@ -66,12 +70,12 @@ if ! zgenom saved; then
     echo "Creating a zgenom save"
 
     zgenom oh-my-zsh
-    zgenom oh-my-zsh plugins/asdf
     zgenom oh-my-zsh plugins/bgnotify
     zgenom oh-my-zsh plugins/git
     zgenom oh-my-zsh plugins/sudo
     zgenom oh-my-zsh plugins/colored-man-pages
     zgenom oh-my-zsh plugins/rsync
+    zgenom oh-my-zsh plugins/nvm
 
     zgenom loadall <<EOPLUGINS
         zdharma-continuum/fast-syntax-highlighting
