@@ -23,3 +23,11 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins")
+
+require('telescope').setup{
+    defaults={
+	n={
+	    ["<leader>ff"] = "find_files"
+	}
+    }
+}
