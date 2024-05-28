@@ -1,11 +1,11 @@
-GITSTATUS_LOG_LEVEL=DEBUG
-
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
-# if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-#   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-# fi
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+GITSTATUS_LOG_LEVEL=DEBUG
 
 # Correct spelling for commands
 setopt correct
@@ -25,6 +25,12 @@ setopt hist_save_no_dups
 setopt hist_verify
 setopt INC_APPEND_HISTORY
 unsetopt HIST_BEEP
+
+HISTORY_IGNORE="(cd ..|l[s]#( *)#|pwd *|exit *|date *|* --help)"
+
+# Share your history across all your terminal windows
+setopt share_history
+
 HISTSIZE=100000
 SAVEHIST=100000
 HISTFILE=~/.zsh_history
@@ -59,9 +65,6 @@ zstyle ':completion:*' accept-exact '*(N)'
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path ~/.zsh/cache
 
-# zstyle ':completion:*:*:docker:*' option-stacking yes
-# zstyle ':completion:*:*:docker-*:*' option-stacking yes
-
 zstyle ':omz:plugins:nvm' autoload yes
 
 setopt ALWAYS_TO_END     # Move cursor to the end of a completed word.
@@ -92,9 +95,6 @@ if ! zgenom saved; then
     zgenom oh-my-zsh
     zgenom oh-my-zsh plugins/aws
     zgenom oh-my-zsh plugins/bgnotify
-    # zgenom oh-my-zsh plugins/composer
-    # zgenom oh-my-zsh plugins/docker
-    # zgenom oh-my-zsh plugins/docker-compose
     zgenom oh-my-zsh plugins/sudo
     zgenom oh-my-zsh plugins/colored-man-pages
     zgenom oh-my-zsh plugins/systemd
@@ -102,21 +102,18 @@ if ! zgenom saved; then
 
     zgenom loadall <<EOPLUGINS
         zdharma-continuum/fast-syntax-highlighting
-		# marlonrichert/zsh-autocomplete trop capricieux
-      	# zsh-users/zsh-history-substring-search
-        clarketm/zsh-completions
-        zsh-users/zsh-autosuggestions
+      	zsh-users/zsh-history-substring-search
+        unixorn/autoupdate-zgenom
         unixorn/warhol.plugin.zsh
-        unixorn/prettyping
-        agkozak/zsh-z
+        djui/alias-tips
+        unixorn/fzf-zsh-plugin
+        chrissicool/zsh-256color
+        zsh-users/zsh-completions src
+        srijanshetty/docker-zsh
+        RobSis/zsh-completion-generator
+        zsh-users/zsh-autosuggestions
+        supercrabtree/k
         romkatv/powerlevel10k powerlevel10k
-
-
-        # svenXY/timewarrior
-        # spwhitt/nix-zsh-completions
-        # jscutlery/nx-completion
-        # MichaelAquilina/zsh-you-should-use
-        # spaceship-prompt/spaceship-prompt spaceship
 EOPLUGINS
     zgenom save
 fi
@@ -134,3 +131,7 @@ bindkey '^ ' autosuggest-accept
 [[ ! -f "~/.rye/env" ]] || source "~/.rye/env"
 
 alias ls="eza -l -a --icons -F --hyperlink"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
